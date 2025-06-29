@@ -1,0 +1,117 @@
+[+] Running 6/6
+ ✔ Network console_default             Created                                                                                                                                0.2s
+ ✔ Container console-db-1              Created                                                                                                                                0.0s
+ ✔ Container console-provider-proxy-1  Created                                                                                                                               13.5s
+ ✔ Container console-api-1             Created                                                                                                                               21.4s
+ ✔ Container console-notifications-1   Created                                                                                                                               14.7s
+ ✔ Container console-deploy-web-1      Created                                                                                                                               10.5s
+Attaching to deploy-web-1
+deploy-web-1  |
+deploy-web-1  | > @akashnetwork/console-web@2.89.6 dev
+deploy-web-1  | > next
+deploy-web-1  |
+deploy-web-1  | {"level":"info","time":1751227100611,"pid":18,"hostname":"7c23f5399373","context":"ENV","msg":"Loaded env files: env/.env.local, env/.env"}
+deploy-web-1  | No env-config.schema.js found, skipping env validation
+deploy-web-1  | [@sentry/nextjs] Setting a `sentry` property on the Next.js config object as a means of configuration is no longer supported. Please use the `sentryBuildOptions` argument of of the `withSentryConfig()` function instead.
+deploy-web-1  | {"level":"info","time":1751227101307,"pid":29,"hostname":"7c23f5399373","context":"ENV","msg":"Loaded env files: env/.env.local, env/.env"}
+deploy-web-1  | No env-config.schema.js found, skipping env validation
+deploy-web-1  | [@sentry/nextjs] Setting a `sentry` property on the Next.js config object as a means of configuration is no longer supported. Please use the `sentryBuildOptions` argument of of the `withSentryConfig()` function instead.
+deploy-web-1  |   ▲ Next.js 14.2.30
+deploy-web-1  |   - Local:        http://localhost:3000
+deploy-web-1  |   - Experiments (use with caution):
+deploy-web-1  |     · instrumentationHook
+deploy-web-1  |
+deploy-web-1  |  ✓ Starting...
+deploy-web-1  |    Using tsconfig file: ./tsconfig.json
+deploy-web-1  | [@sentry/nextjs] It appears you've configured a `sentry.server.config.js` file. Please ensure to put this file's content into the `register()` function of a Next.js instrumentation hook instead. To ensure correct functionality of the SDK, `Sentry.init` must be called inside `instrumentation.ts`. Learn more about setting up an instrumentation hook in Next.js: https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation. You can safely delete the `sentry.server.config.js` file afterward.
+deploy-web-1  | > [PWA] PWA support is disabled
+deploy-web-1  | [@sentry/nextjs] It appears you've configured a `sentry.edge.config.js` file. Please ensure to put this file's content into the `register()` function of a Next.js instrumentation hook instead. To ensure correct functionality of the SDK, `Sentry.init` must be called inside `instrumentation.ts`. Learn more about setting up an instrumentation hook in Next.js: https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation. You can safely delete the `sentry.edge.config.js` file afterward.
+deploy-web-1  | > [PWA] PWA support is disabled
+deploy-web-1  |  ✓ Compiled /instrumentation in 490ms (179 modules)
+deploy-web-1  | {"level":"info","time":1751227102889,"pid":29,"hostname":"7c23f5399373","context":"ENV","msg":"Loaded env files: env/.env.local, env/.env"}
+deploy-web-1  |  ✓ Ready in 1706ms
+deploy-web-1  |  ○ Compiling /src/middleware ...
+deploy-web-1  |  ✓ Compiled /src/middleware in 620ms (415 modules)
+deploy-web-1  |  ○ Compiling /new-deployment ...
+deploy-web-1  |  ✓ Compiled /new-deployment in 18.7s (11363 modules)
+deploy-web-1  |  ✓ Compiled in 936ms (11363 modules)
+deploy-web-1  | {"level":"info","time":1751227125135,"pid":29,"hostname":"7c23f5399373","context":"ENV","msg":"Loaded env files: env/.env.local, env/.env"}
+deploy-web-1  |  GET /new-deployment 200 in 300ms
+deploy-web-1  | <w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (318kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+deploy-web-1  |  ○ Compiling /404 ...
+deploy-web-1  |  ✓ Compiled /404 in 5.8s (11495 modules)
+deploy-web-1  | {"level":"info","time":1751227136308,"pid":29,"hostname":"7c23f5399373","context":"ENV","msg":"Loaded env files: env/.env.local, env/.env"}
+deploy-web-1  | server /profile /api/auth/me
+deploy-web-1  | auth0 signup error {
+deploy-web-1  |   status: 0,
+deploy-web-1  |   message: 'Profile handler failed. CAUSE: "secret" is not allowed to be empty',
+deploy-web-1  |   stack: 'ProfileHandlerError: Profile handler failed. CAUSE: "secret" is not allowed to be empty\n' +
+deploy-web-1  |     '    at /app/node_modules/@auth0/nextjs-auth0/dist/handlers/profile.js:83:15\n' +
+deploy-web-1  |     '    at Object.handleProfile (/app/node_modules/@auth0/nextjs-auth0/dist/handlers/router-helpers.js:10:16)\n' +
+deploy-web-1  |     '    at exports.handleProfile (/app/node_modules/@auth0/nextjs-auth0/dist/index.js:45:53)\n' +
+deploy-web-1  |     '    at profile (webpack-internal:///(api)/./src/pages/api/auth/[...auth0].ts:45:85)\n' +
+deploy-web-1  |     '    at /app/node_modules/@auth0/nextjs-auth0/dist/handlers/auth.js:79:19\n' +
+deploy-web-1  |     '    at /app/node_modules/@auth0/nextjs-auth0/dist/handlers/auth.js:31:20\n' +
+deploy-web-1  |     '    at eval (webpack-internal:///(api)/./src/lib/nextjs/wrapApiHandler.ts:9:214)\n' +
+deploy-web-1  |     '    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)\n' +
+deploy-web-1  |     '    at eval (webpack-internal:///(api)/./src/lib/nextjs/wrapApiHandler.ts:9:100)\n' +
+deploy-web-1  |     '    at /app/node_modules/@sentry/nextjs/build/cjs/common/pages-router-instrumentation/wrapApiHandlerWithSentry.js:89:49\n' +
+deploy-web-1  |     '    at handleCallbackErrors.handleCallbackErrors.status.status (/app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/tracing/trace.js:123:15)\n' +
+deploy-web-1  |     '    at Object.handleCallbackErrors (/app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/utils/handleCallbackErrors.js:26:26)\n' +
+deploy-web-1  |     '    at /app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/tracing/trace.js:122:35\n' +
+deploy-web-1  |     '    at /app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/tracing/trace.js:452:21\n' +
+deploy-web-1  |     '    at /app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/tracing/trace.js:102:12',
+deploy-web-1  |   error: ProfileHandlerError: Profile handler failed. CAUSE: "secret" is not allowed to be empty
+deploy-web-1  |       at /app/node_modules/@auth0/nextjs-auth0/dist/handlers/profile.js:83:15
+deploy-web-1  |       at Object.handleProfile (/app/node_modules/@auth0/nextjs-auth0/dist/handlers/router-helpers.js:10:16)
+deploy-web-1  |       ... 9 lines matching cause stack trace ...
+deploy-web-1  |       at Object.handleCallbackErrors (/app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/utils/handleCallbackErrors.js:26:26)
+deploy-web-1  |       at /app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/tracing/trace.js:122:35
+deploy-web-1  |       at /app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/tracing/trace.js:452:21
+deploy-web-1  |       at /app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/tracing/trace.js:102:12 {
+deploy-web-1  |     code: 'ERR_PROFILE_HANDLER_FAILURE',
+deploy-web-1  |     cause: TypeError: "secret" is not allowed to be empty
+deploy-web-1  |         at get (/app/node_modules/@auth0/nextjs-auth0/dist/auth0-session/get-config.js:197:15)
+deploy-web-1  |         at getConfig (/app/node_modules/@auth0/nextjs-auth0/dist/config.js:74:45)
+deploy-web-1  |         at /app/node_modules/@auth0/nextjs-auth0/dist/config.js:97:44
+deploy-web-1  |         at /app/node_modules/@auth0/nextjs-auth0/dist/handlers/profile.js:58:30
+deploy-web-1  |         at Object.handleProfile (/app/node_modules/@auth0/nextjs-auth0/dist/handlers/router-helpers.js:10:16)
+deploy-web-1  |         at exports.handleProfile (/app/node_modules/@auth0/nextjs-auth0/dist/index.js:45:53)
+deploy-web-1  |         at profile (webpack-internal:///(api)/./src/pages/api/auth/[...auth0].ts:45:85)
+deploy-web-1  |         at /app/node_modules/@auth0/nextjs-auth0/dist/handlers/auth.js:79:19
+deploy-web-1  |         at /app/node_modules/@auth0/nextjs-auth0/dist/handlers/auth.js:31:20
+deploy-web-1  |         at eval (webpack-internal:///(api)/./src/lib/nextjs/wrapApiHandler.ts:9:214)
+deploy-web-1  |         at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+deploy-web-1  |         at eval (webpack-internal:///(api)/./src/lib/nextjs/wrapApiHandler.ts:9:100)
+deploy-web-1  |         at /app/node_modules/@sentry/nextjs/build/cjs/common/pages-router-instrumentation/wrapApiHandlerWithSentry.js:89:49
+deploy-web-1  |         at handleCallbackErrors.handleCallbackErrors.status.status (/app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/tracing/trace.js:123:15)
+deploy-web-1  |         at Object.handleCallbackErrors (/app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/utils/handleCallbackErrors.js:26:26),
+deploy-web-1  |     status: undefined
+deploy-web-1  |   }
+deploy-web-1  | }
+deploy-web-1  |  GET /api/auth/me 400 in 6116ms
+deploy-web-1  |  GET /v1/nodes/mainnet 404 in 6118ms
+deploy-web-1  |  GET /v1/nodes/mainnet 404 in 6108ms
+deploy-web-1  |  ✓ Compiled /api/proxy/[...path] in 296ms (1477 modules)
+deploy-web-1  | {"level":"info","time":1751227136686,"pid":29,"hostname":"7c23f5399373","context":"ENV","msg":"Loaded env files: env/.env.local, env/.env"}
+deploy-web-1  | proxy: /v1/anonymous-users
+deploy-web-1  |  ⨯ TypeError: "secret" is not allowed to be empty
+deploy-web-1  |     at get (/app/node_modules/@auth0/nextjs-auth0/dist/auth0-session/get-config.js:197:15)
+deploy-web-1  |     at getConfig (/app/node_modules/@auth0/nextjs-auth0/dist/config.js:74:45)
+deploy-web-1  |     at SessionCache.getConfig (/app/node_modules/@auth0/nextjs-auth0/dist/config.js:97:44)
+deploy-web-1  |     at SessionCache.init (/app/node_modules/@auth0/nextjs-auth0/dist/session/cache.js:36:39)
+deploy-web-1  |     at SessionCache.get (/app/node_modules/@auth0/nextjs-auth0/dist/session/cache.js:89:20)
+deploy-web-1  |     at get (/app/node_modules/@auth0/nextjs-auth0/dist/session/cache.js:101:36)
+deploy-web-1  |     at Object.getSession (/app/node_modules/@auth0/nextjs-auth0/dist/session/get-session.js:9:51)
+deploy-web-1  |     at getSession (/app/node_modules/@auth0/nextjs-auth0/dist/index.js:31:47)
+deploy-web-1  |     at eval (webpack-internal:///(api)/./src/pages/api/proxy/[...path].ts:27:90)
+deploy-web-1  |     at eval (webpack-internal:///(api)/./src/lib/nextjs/wrapApiHandler.ts:9:214)
+deploy-web-1  |     at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+deploy-web-1  |     at eval (webpack-internal:///(api)/./src/lib/nextjs/wrapApiHandler.ts:9:100)
+deploy-web-1  |     at /app/node_modules/@sentry/nextjs/build/cjs/common/pages-router-instrumentation/wrapApiHandlerWithSentry.js:89:49
+deploy-web-1  |     at handleCallbackErrors.handleCallbackErrors.status.status (/app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/tracing/trace.js:123:15)
+deploy-web-1  |     at Object.handleCallbackErrors (/app/node_modules/@sentry/nextjs/node_modules/@sentry/core/build/cjs/utils/handleCallbackErrors.js:26:26) {
+deploy-web-1  |   page: '/api/proxy/[...path]'
+deploy-web-1  | }
+deploy-web-1  |  ✓ Compiled /_error in 383ms (11498 modules)
+deploy-web-1  |  POST /api/proxy/v1/anonymous-users 500 in 790ms

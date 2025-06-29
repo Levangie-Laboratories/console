@@ -11,12 +11,14 @@ import { CI_CD_TEMPLATE_ID } from "@src/config/remote-deploy.config";
 import type { TemplateOutputSummaryWithCategory } from "@src/queries/useTemplateQuery";
 import { useTemplates } from "@src/queries/useTemplateQuery";
 import { analyticsService } from "@src/services/analytics/analytics.service";
+import { isAgentModalOpenAtom } from "@src/store/agentStore";
 import sdlStore from "@src/store/sdlStore";
 import type { TemplateCreation } from "@src/types";
 import { RouteStep } from "@src/types/route-steps.type";
 import { helloWorldTemplate } from "@src/utils/templates";
 import type { NewDeploymentParams } from "@src/utils/urlUtils";
 import { domainName, UrlService } from "@src/utils/urlUtils";
+import { AkashAgentModal } from "../akash-agent/AkashAgentModal";
 import { CustomNextSeo } from "../shared/CustomNextSeo";
 import { TemplateBox } from "../templates/TemplateBox";
 import { DeployOptionBox } from "./DeployOptionBox";
@@ -48,11 +50,32 @@ export const TemplateList: React.FunctionComponent<Props> = ({ onChangeGitProvid
   const router = useRouter();
   const [previewTemplates, setPreviewTemplates] = useState<TemplateOutputSummaryWithCategory[]>([]);
   const [, setSdlEditMode] = useAtom(sdlStore.selectedSdlEditMode);
+  const [isAgentModalOpen, setIsAgentModalOpen] = useAtom(isAgentModalOpenAtom);
 
   const handleGithubTemplate = async () => {
     analyticsService.track("build_n_deploy_btn_clk", "Amplitude");
     onChangeGitProvider(true);
     router.push(UrlService.newDeployment({ step: RouteStep.editDeployment, gitProvider: "github", templateId: CI_CD_TEMPLATE_ID }));
+  };
+
+  const handleAkashAgentClick = () => {
+    analyticsService.track("build_n_deploy_btn_clk", "Amplitude");
+    setIsAgentModalOpen(true);
+  };
+
+  const handleAgentSDLGenerated = (sdl: string, template: TemplateCreation) => {
+    // Set the SDL in the editor
+    setEditedManifest(sdl);
+    onTemplateSelected(template);
+    setSdlEditMode("yaml");
+    
+    // Close modal
+    setIsAgentModalOpen(false);
+    
+    // Navigate to SDL editor
+    router.push(UrlService.newDeployment({ 
+      step: RouteStep.editDeployment
+    }));
   };
 
   useEffect(() => {
@@ -100,6 +123,16 @@ export const TemplateList: React.FunctionComponent<Props> = ({ onChangeGitProvid
 
       <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-4">
         <div className="col-span-3 grid grid-cols-1 gap-4 md:col-span-1">
+          {/* NEW: Akash Agent Option - Prominent placement at top */}
+          <DeployOptionBox
+            title="Akash Agent"
+            description="Automate and manage your deployments with the new Akash Agent"
+            topIcons={[{ light: "/images/github.png", dark: "/images/github-dark.svg" }, "/images/akash-logo.svg"]}
+            bottomIcons={["/images/docker-logo.png"]}
+            onClick={handleAkashAgentClick}
+            testId="akash-agent-card"
+          />
+
           <DeployOptionBox
             title="Build & Deploy"
             description="Build & Deploy directly from a code repository (VCS)"
@@ -173,6 +206,13 @@ export const TemplateList: React.FunctionComponent<Props> = ({ onChangeGitProvid
           </CardContent>
         </Card>
       </div>
+
+      {/* Akash Agent Modal */}
+      <AkashAgentModal
+        isOpen={isAgentModalOpen}
+        onClose={() => setIsAgentModalOpen(false)}
+        onSDLGenerated={handleAgentSDLGenerated}
+      />
     </div>
   );
 };

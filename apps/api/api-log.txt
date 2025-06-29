@@ -1,0 +1,116 @@
+(base) blabs@blabs-desktop:~/akash-console$ docker logs 3639cd99ba13
+
+> @akashnetwork/console-api@2.102.6 dev
+> npm run start
+
+
+> @akashnetwork/console-api@2.102.6 start
+> webpack --config webpack.dev.js --watch
+
+asset server.js 30.6 MiB [compared for emit] (name: main) 1 related asset
+runtime modules 1.04 KiB 5 modules
+orphan modules 4.07 KiB [orphan] 4 modules
+modules by path ../../node_modules/ 26 MiB
+  javascript modules 24.8 MiB
+    cacheable modules 24.8 MiB 2948 modules
+    + 3 modules
+  json modules 1.23 MiB 20 modules
+modules by path ../../packages/ 960 KiB 433 modules
+modules by path ./ 822 KiB 325 modules
+modules by path external "@cosmjs/ 168 bytes
+  external "@cosmjs/crypto" 42 bytes [built] [code generated]
+  external "@cosmjs/encoding" 42 bytes [built] [code generated]
+  external "@cosmjs/stargate" 42 bytes [built] [code generated]
+  external "@cosmjs/math" 42 bytes [built] [code generated]
++ 38 modules
+
+WARNING in ../../node_modules/ws/lib/buffer-util.js 117:23-44
+Module not found: Error: Can't resolve 'bufferutil' in '/app/node_modules/ws/lib'
+ @ ../../node_modules/ws/lib/sender.js 11:38-62
+ @ ../../node_modules/ws/index.js 8:19-42
+ @ ../../node_modules/isomorphic-ws/node.js 3:0-30
+ @ ../../node_modules/@cosmjs/socket/build/socketwrapper.js 7:40-64
+ @ ../../node_modules/@cosmjs/socket/build/index.js 9:22-48
+ @ ../../node_modules/@cosmjs/tendermint-rpc/build/rpcclients/websocketclient.js 5:17-42
+ @ ../../node_modules/@cosmjs/tendermint-rpc/build/rpcclients/index.js 11:24-52
+ @ ../../node_modules/@cosmjs/tendermint-rpc/build/index.js 44:19-42
+ @ ./src/billing/lib/sync-signing-stargate-client/sync-signing-stargate-client.ts 5:25-58
+ @ ./src/billing/lib/batch-signing-client/batch-signing-client.service.ts 15:39-124
+ @ ./src/billing/services/index.ts 21:13-90
+ @ ./src/certificate/services/certificate.service.ts 21:19-51
+ @ ./src/certificate/controllers/certificate.controller.ts 15:30-72
+ @ ./src/certificate/routes/certificate.router.ts 7:33-81
+ @ ./src/app.ts 24:29-79
+ @ ./src/index.ts 6:14-30
+
+WARNING in ../../node_modules/ws/lib/validation.js 144:24-49
+Module not found: Error: Can't resolve 'utf-8-validate' in '/app/node_modules/ws/lib'
+ @ ../../node_modules/ws/lib/sender.js 10:38-61
+ @ ../../node_modules/ws/index.js 8:19-42
+ @ ../../node_modules/isomorphic-ws/node.js 3:0-30
+ @ ../../node_modules/@cosmjs/socket/build/socketwrapper.js 7:40-64
+ @ ../../node_modules/@cosmjs/socket/build/index.js 9:22-48
+ @ ../../node_modules/@cosmjs/tendermint-rpc/build/rpcclients/websocketclient.js 5:17-42
+ @ ../../node_modules/@cosmjs/tendermint-rpc/build/rpcclients/index.js 11:24-52
+ @ ../../node_modules/@cosmjs/tendermint-rpc/build/index.js 44:19-42
+ @ ./src/billing/lib/sync-signing-stargate-client/sync-signing-stargate-client.ts 5:25-58
+ @ ./src/billing/lib/batch-signing-client/batch-signing-client.service.ts 15:39-124
+ @ ./src/billing/services/index.ts 21:13-90
+ @ ./src/certificate/services/certificate.service.ts 21:19-51
+ @ ./src/certificate/controllers/certificate.controller.ts 15:30-72
+ @ ./src/certificate/routes/certificate.router.ts 7:33-81
+ @ ./src/app.ts 24:29-79
+ @ ./src/index.ts 6:14-30
+
+2 warnings have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.98.0 compiled with 2 warnings in 31717 ms
+[nodemon] 3.0.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): dist/server.js
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node dist/server.js`
+{"level":"info","time":1751227133081,"pid":41,"hostname":"3639cd99ba13","context":"ENV","msg":"Loaded env files: env/.env"}
+{"level":"debug","time":"2025-06-29T19:58:53.607Z","context":"POSTGRES","orm":"drizzle","msg":"CREATE SCHEMA IF NOT EXISTS \"drizzle\""}
+(node:41) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":"info","time":"2025-06-29T19:58:53.629Z","pid":41,"hostname":"3639cd99ba13","context":"POSTGRES","severity_local":"NOTICE","severity":"NOTICE","code":"42P06","message":"schema \"drizzle\" already exists, skipping","file":"schemacmds.c","line":"131","routine":"CreateSchemaCommand"}
+{"level":"debug","time":"2025-06-29T19:58:53.629Z","context":"POSTGRES","orm":"drizzle","msg":"\n\t\t\tCREATE TABLE IF NOT EXISTS \"drizzle\".\"__drizzle_migrations\" (\n\t\t\t\tid SERIAL PRIMARY KEY,\n\t\t\t\thash text NOT NULL,\n\t\t\t\tcreated_at bigint\n\t\t\t)\n\t\t"}
+{"level":"info","time":"2025-06-29T19:58:53.629Z","pid":41,"hostname":"3639cd99ba13","context":"POSTGRES","severity_local":"NOTICE","severity":"NOTICE","code":"42P07","message":"relation \"__drizzle_migrations\" already exists, skipping","file":"parse_utilcmd.c","line":"207","routine":"transformCreateStmt"}
+{"level":"debug","time":"2025-06-29T19:58:53.629Z","context":"POSTGRES","orm":"drizzle","msg":"select id, hash, created_at from \"drizzle\".\"__drizzle_migrations\" order by created_at desc limit 1"}
+{"level":"debug","time":"2025-06-29T19:58:53.631Z","pid":41,"hostname":"3639cd99ba13","context":"APP","msg":"Connecting to chain database (db/console-akash-sandbox)..."}
+{"level":"debug","time":"2025-06-29T19:58:53.656Z","context":"POSTGRES","orm":"sequelize","msg":" SELECT 1+1 AS result"}
+{"level":"debug","time":"2025-06-29T19:58:53.656Z","pid":41,"hostname":"3639cd99ba13","context":"APP","msg":"Connection has been established successfully."}
+{"level":"debug","time":"2025-06-29T19:58:53.656Z","pid":41,"hostname":"3639cd99ba13","context":"APP","msg":"Connecting to user database (db/console-users)..."}
+{"level":"debug","time":"2025-06-29T19:58:53.674Z","context":"POSTGRES","orm":"sequelize","msg":" SELECT 1+1 AS result"}
+{"level":"debug","time":"2025-06-29T19:58:53.674Z","pid":41,"hostname":"3639cd99ba13","context":"APP","msg":"Connection has been established successfully."}
+{"level":"debug","time":"2025-06-29T19:58:53.675Z","context":"POSTGRES","orm":"sequelize","msg":" SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'userSetting'"}
+{"level":"debug","time":"2025-06-29T19:58:53.674Z","pid":41,"hostname":"3639cd99ba13","context":"APP","msg":"Sync user schema..."}
+{"level":"debug","time":"2025-06-29T19:58:53.677Z","context":"POSTGRES","orm":"sequelize","msg":" SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'userSetting' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;"}
+{"level":"debug","time":"2025-06-29T19:58:53.679Z","context":"POSTGRES","orm":"sequelize","msg":" SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'template'"}
+{"level":"debug","time":"2025-06-29T19:58:53.680Z","context":"POSTGRES","orm":"sequelize","msg":" SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'template' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;"}
+{"level":"debug","time":"2025-06-29T19:58:53.680Z","context":"POSTGRES","orm":"sequelize","msg":" SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'templateFavorite'"}
+{"level":"debug","time":"2025-06-29T19:58:53.681Z","context":"POSTGRES","orm":"sequelize","msg":" SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'templateFavorite' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;"}
+{"level":"debug","time":"2025-06-29T19:58:53.681Z","pid":41,"hostname":"3639cd99ba13","context":"APP","msg":"User schema synced."}
+{"level":"info","time":"2025-06-29T19:58:53.682Z","pid":41,"hostname":"3639cd99ba13","context":"APP","event":"SERVER_STARTING","url":"http://localhost:3000","NODE_OPTIONS":"--no-network-family-autoselection"}
+{"level":"info","time":"2025-06-29T19:58:57.285Z","pid":41,"hostname":"3639cd99ba13","context":"HTTP","httpRequest":{"requestMethod":"GET","requestUrl":"http://localhost:3080/v1/features","status":200,"referrer":"about:client","duration":"1.709ms","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0","remoteIp":"::ffff:172.20.0.1"},"fingerprint":"fa24e66ec9b23d04e6bc90719627305648f2d1ddc40cd6bdf15fdd63719886cc"}
+{"level":"debug","time":"2025-06-29T19:58:57.288Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Request for key: getTemplates"}
+{"level":"debug","time":"2025-06-29T19:58:57.288Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Object was not in cache or is expired, making new request for key: getTemplates"}
+{"level":"debug","time":"2025-06-29T19:58:57.290Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Waiting for pending request for key: getTemplates"}
+{"level":"debug","time":"2025-06-29T19:58:57.317Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Request for key: StatsService#getMarketData#akash-network"}
+{"level":"debug","time":"2025-06-29T19:58:57.317Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Object was not in cache or is expired, making new request for key: StatsService#getMarketData#akash-network"}
+{"level":"debug","time":"2025-06-29T19:58:57.317Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Waiting for pending request for key: StatsService#getMarketData#akash-network"}
+{"level":"error","time":"2025-06-29T19:58:57.485Z","pid":41,"hostname":"3639cd99ba13","context":"ErrorHandler","msg":"HttpError: Bad credentials\n    at /app/apps/api/dist/server.js:392039:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async fetchLatestCommitSha (/app/apps/api/dist/server.js:750163:22)\n    at async getTemplatesFromRepo (/app/apps/api/dist/server.js:750102:25)\n    at async Promise.all (index 0)\n    at async getTemplateGallery (/app/apps/api/dist/server.js:750140:81)\n    at async cacheResponse (/app/apps/api/dist/server.js:738044:17)\n    at async /app/apps/api/dist/server.js:748802:34\n    at async dispatch (/app/apps/api/dist/server.js:477558:17)\n    at async /app/apps/api/dist/server.js:743838:9\n\nResponse:\n\n\nRequest: Unknown request\n\n\nStatus: 401\n\n\nError: Bad credentials (code: Not specified)"}
+{"level":"info","time":"2025-06-29T19:58:57.486Z","pid":41,"hostname":"3639cd99ba13","context":"HTTP","httpRequest":{"requestMethod":"GET","requestUrl":"http://localhost:3080/v1/templates-list","status":500,"referrer":"about:client","duration":"198.042ms","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0","remoteIp":"::ffff:172.20.0.1"},"fingerprint":"b1cc418bcbaabaab48a950adc80db36a54205dbcee32412d219029910f31c250"}
+{"level":"info","time":"2025-06-29T19:58:57.779Z","pid":41,"hostname":"3639cd99ba13","context":"HTTP","httpRequest":{"requestMethod":"GET","requestUrl":"http://localhost:3080/v1/market-data","status":200,"referrer":"about:client","duration":"462.664ms","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0","remoteIp":"::ffff:172.20.0.1"},"fingerprint":"fa24e66ec9b23d04e6bc90719627305648f2d1ddc40cd6bdf15fdd63719886cc"}
+{"level":"debug","time":"2025-06-29T19:58:58.519Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Request for key: getTemplates"}
+{"level":"debug","time":"2025-06-29T19:58:58.519Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Object was not in cache or is expired, making new request for key: getTemplates"}
+{"level":"debug","time":"2025-06-29T19:58:58.522Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Waiting for pending request for key: getTemplates"}
+{"level":"error","time":"2025-06-29T19:58:58.571Z","pid":41,"hostname":"3639cd99ba13","context":"ErrorHandler","msg":"HttpError: Bad credentials\n    at /app/apps/api/dist/server.js:392039:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async fetchLatestCommitSha (/app/apps/api/dist/server.js:750163:22)\n    at async getTemplatesFromRepo (/app/apps/api/dist/server.js:750102:25)\n    at async Promise.all (index 0)\n    at async getTemplateGallery (/app/apps/api/dist/server.js:750140:81)\n    at async cacheResponse (/app/apps/api/dist/server.js:738044:17)\n    at async /app/apps/api/dist/server.js:748802:34\n    at async dispatch (/app/apps/api/dist/server.js:477558:17)\n    at async /app/apps/api/dist/server.js:743838:9\n\nResponse:\n\n\nRequest: Unknown request\n\n\nStatus: 401\n\n\nError: Bad credentials (code: Not specified)"}
+{"level":"info","time":"2025-06-29T19:58:58.571Z","pid":41,"hostname":"3639cd99ba13","context":"HTTP","httpRequest":{"requestMethod":"GET","requestUrl":"http://localhost:3080/v1/templates-list","status":500,"referrer":"about:client","duration":"51.662ms","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0","remoteIp":"::ffff:172.20.0.1"},"fingerprint":"b1cc418bcbaabaab48a950adc80db36a54205dbcee32412d219029910f31c250"}
+{"level":"debug","time":"2025-06-29T19:59:00.590Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Request for key: getTemplates"}
+{"level":"debug","time":"2025-06-29T19:59:00.591Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Object was not in cache or is expired, making new request for key: getTemplates"}
+{"level":"debug","time":"2025-06-29T19:59:00.594Z","pid":41,"hostname":"3639cd99ba13","context":"Caching","msg":"Waiting for pending request for key: getTemplates"}
+{"level":"error","time":"2025-06-29T19:59:00.644Z","pid":41,"hostname":"3639cd99ba13","context":"ErrorHandler","msg":"HttpError: Bad credentials\n    at /app/apps/api/dist/server.js:392039:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async fetchLatestCommitSha (/app/apps/api/dist/server.js:750163:22)\n    at async getTemplatesFromRepo (/app/apps/api/dist/server.js:750102:25)\n    at async Promise.all (index 0)\n    at async getTemplateGallery (/app/apps/api/dist/server.js:750140:81)\n    at async cacheResponse (/app/apps/api/dist/server.js:738044:17)\n    at async /app/apps/api/dist/server.js:748802:34\n    at async dispatch (/app/apps/api/dist/server.js:477558:17)\n    at async /app/apps/api/dist/server.js:743838:9\n\nResponse:\n\n\nRequest: Unknown request\n\n\nStatus: 401\n\n\nError: Bad credentials (code: Not specified)"}
+{"level":"info","time":"2025-06-29T19:59:00.644Z","pid":41,"hostname":"3639cd99ba13","context":"HTTP","httpRequest":{"requestMethod":"GET","requestUrl":"http://localhost:3080/v1/templates-list","status":500,"referrer":"about:client","duration":"53.892ms","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0","remoteIp":"::ffff:172.20.0.1"},"fingerprint":"b1cc418bcbaabaab48a950adc80db36a54205dbcee32412d219029910f31c250"}
